@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khivan | Full-Stack Software Engineer &amp; Designer</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+            accent: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Custom glow & scrollbar styling */
+    .glow-effect {
+      background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15), transparent 70%);
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans selection:bg-brand-500 selection:text-white transition-colors duration-300">
+
+  <!-- Background Gradients -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 -right-40 w-96 h-96 bg-accent-500/15 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-1/4 w-80 h-80 bg-purple-600/15 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-500 flex items-center justify-center font-bold text-white shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform">
+          K
+        </div>
+        <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+          Khivan<span class="text-brand-500">.dev</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+        <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-600 to-indigo-600 text-white text-sm font-medium hover:from-brand-500 hover:to-indigo-500 transition-all shadow-md shadow-brand-500/20 hover:shadow-brand-500/40">
+          <span>Let's Talk</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <button id="menu-btn" class="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2 bg-slate-950 border-b border-slate-800 flex flex-col gap-4 text-slate-300 font-medium">
+      <a href="#about" class="py-2 hover:text-white mobile-link">About</a>
+      <a href="#skills" class="py-2 hover:text-white mobile-link">Skills</a>
+      <a href="#projects" class="py-2 hover:text-white mobile-link">Projects</a>
+      <a href="#experience" class="py-2 hover:text-white mobile-link">Experience</a>
+      <a href="#contact" class="py-2 hover:text-white mobile-link">Contact</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-24">
+
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-6 py-20 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-12">
+      <div class="flex-1 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold tracking-wide uppercase">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          Available for new opportunities
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          Hi, I'm <span class="bg-gradient-to-r from-brand-400 via-indigo-400 to-accent-400 bg-clip-text text-transparent">Khivan</span>
+        </h1>
+
+        <p class="text-xl sm:text-2xl text-slate-300 font-medium">
+          Building <span id="typing-text" class="text-white border-b-2 border-brand-500 pb-0.5"></span>
+        </p>
+
+        <p class="text-slate-400 max-w-xl mx-auto lg:mx-0 text-base leading-relaxed">
+          I am a passionate software engineer specializing in architecting modern web apps, scalable backend systems, and delightful digital user interfaces.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+          <a href="#projects" class="px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all shadow-lg shadow-brand-600/30 flex items-center gap-2">
+            <span>Explore My Work</span>
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+          </a>
+          <a href="#contact" class="px-6 py-3.5 rounded-xl border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-slate-200 font-semibold transition-all flex items-center gap-2">
+            <span>Get in Touch</span>
+            <i data-lucide="mail" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <div class="flex items-center justify-center lg:justify-start gap-5 pt-4 text-slate-400">
+          <a href="https://github.com" target="_blank" class="hover:text-white p-2 rounded-lg hover:bg-slate-800/80 transition-all"><i data-lucide="github" class="w-5 h-5"></i></a>
+          <a href="https://linkedin.com" target="_blank" class="hover:text-white p-2 rounded-lg hover:bg-slate-800/80 transition-all"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+          <a href="https://twitter.com" target="_blank" class="hover:text-white p-2 rounded-lg hover:bg-slate-800/80 transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card -->
+      <div class="flex-1 flex justify-center">
+        <div class="relative w-72 sm:w-88 aspect-square rounded-3xl p-1 bg-gradient-to-tr from-brand-600 via-indigo-500 to-accent-500 shadow-2xl shadow-brand-500/20">
+          <div class="w-full h-full bg-slate-900 rounded-[22px] overflow-hidden flex flex-col justify-between p-6 border border-slate-800">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+              </div>
+              <span class="text-xs font-mono text-slate-400">khivan.profile.json</span>
+            </div>
+            
+            <div class="font-mono text-xs sm:text-sm text-slate-300 space-y-2 py-4">
+              <p><span class="text-indigo-400">const</span> <span class="text-emerald-400">developer</span> = {</p>
+              <p class="pl-4">name: <span class="text-amber-300">'Khivan'</span>,</p>
+              <p class="pl-4">role: <span class="text-amber-300">'Full-Stack Engineer'</span>,</p>
+              <p class="pl-4">skills: [<span class="text-amber-300">'React'</span>, <span class="text-amber-300">'TypeScript'</span>, <span class="text-amber-300">'Node'</span>, <span class="text-amber-300">'Python'</span>],</p>
+              <p class="pl-4">passion: <span class="text-amber-300">'Shipping clean products'</span>,</p>
+              <p class="pl-4">coffeeLevel: <span class="text-sky-400">99.9</span></p>
+              <p>};</p>
+            </div>
+
+            <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5 text-emerald-400">
+                <i data-lucide="check-circle-2" class="w-4 h-4"></i> Ready to code
+              </span>
+              <span>100% responsive</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="max-w-6xl mx-auto px-6 py-12 border-y border-slate-800/80">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">4+</div>
+          <div class="text-sm text-slate-400 mt-1">Years of Experience</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-400">25+</div>
+          <div class="text-sm text-slate-400 mt-1">Projects Completed</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-accent-400">99.9%</div>
+          <div class="text-sm text-slate-400 mt-1">Uptime Maintained</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-purple-400">100%</div>
+          <div class="text-sm text-slate-400 mt-1">Client Satisfaction</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="max-w-6xl mx-auto px-6 py-24">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 mb-2">Technical Proficiency</h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Skills &amp; Technologies</h3>
+        <p class="text-slate-400 mt-3">The languages, frameworks, and modern developer tools I use daily.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <!-- Skill Card -->
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 transition-all group">
+          <i data-lucide="code-2" class="w-8 h-8 text-brand-400 mb-3 group-hover:scale-110 transition-transform"></i>
+          <h4 class="text-white font-semibold">JavaScript / TS</h4>
+          <p class="text-xs text-slate-400 mt-1">ESNext, TypeScript 5.x</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 transition-all group">
+          <i data-lucide="atom" class="w-8 h-8 text-sky-400 mb-3 group-hover:scale-110 transition-transform"></i>
+          <h4 class="text-white font-semibold">React &amp; Next.js</h4>
+          <p class="text-xs text-slate-400 mt-1">Hooks, SSR, App Router</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 transition-all group">
+          <i data-lucide="server" class="w-8 h-8 text-emerald-400 mb-3 group-hover:scale-110 transition-transform"></i>
+          <h4 class="text-white font-semibold">Node &amp; Express</h4>
+          <p class="text-xs text-slate-400 mt-1">REST APIs, Microservices</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 transition-all group">
+          <i data-lucide="database" class="w-8 h-8 text-indigo-400 mb-3 group-hover:scale-110 transition-transform"></i>
+          <h4 class="text-white font-semibold">PostgreSQL &amp; Mongo</h4>
+          <p class="text-xs text-slate-400 mt-1">Prisma, Indexing, SQL</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 transition-all group">
+          <i data-lucide="palette" class="w-8 h-8 text-cyan-400 mb-3 group-hover:scale-110 transition-transform"></i>
+          <h4 class="text-white font-semibold">Tailwind CSS</h4>
+          <p class="text-xs text-slate-400 mt-1">Responsive UI, Design Systems</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 transition-all group">
+          <i data-lucide="cloud" class="w-8 h-8 text-orange-400 mb-3 group-hover:scale-110 transition-transform"></i>
+          <h4 class="text-white font-semibold">Cloud &amp; DevOps</h4>
+          <p class="text-xs text-slate-400 mt-1">AWS, Docker, CI/CD</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 transition-all group">
+          <i data-lucide="terminal" class="w-8 h-8 text-amber-400 mb-3 group-hover:scale-110 transition-transform"></i>
+          <h4 class="text-white font-semibold">Python</h4>
+          <p class="text-xs text-slate-400 mt-1">FastAPI, Automation</p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 transition-all group">
+          <i data-lucide="git-branch" class="w-8 h-8 text-rose-400 mb-3 group-hover:scale-110 transition-transform"></i>
+          <h4 class="text-white font-semibold">Git &amp; GitHub</h4>
+          <p class="text-xs text-slate-400 mt-1">Version Control &amp; Actions</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="max-w-6xl mx-auto px-6 py-24 border-t border-slate-800/80">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 mb-2">Portfolio Showcase</h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Featured Projects</h3>
+        <p class="text-slate-400 mt-3">Selected applications I designed and developed recently.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-brand-500/50 overflow-hidden flex flex-col group transition-all">
+          <div class="h-48 bg-gradient-to-br from-indigo-900/40 via-purple-900/20 to-slate-900 flex items-center justify-center p-6 border-b border-slate-800 relative">
+            <i data-lucide="layout-dashboard" class="w-16 h-16 text-indigo-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between text-xs font-semibold text-brand-400 mb-2">
+                <span>SAAS PLATFORM</span>
+                <span>2024</span>
+              </div>
+              <h4 class="text-xl font-bold text-white group-hover:text-brand-300 transition-colors">CloudMetrics Analytics</h4>
+              <p class="text-slate-400 text-sm mt-2">Real-time telemetry and revenue analytics dashboard with customized reports and alert channels.</p>
+            </div>
+            <div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2.5 py-1 text-xs rounded-md bg-slate-800 text-slate-300 font-mono">React</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-slate-800 text-slate-300 font-mono">Node.js</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-slate-800 text-slate-300 font-mono">Postgres</span>
+              </div>
+              <div class="flex items-center gap-4 text-sm font-medium pt-2 border-t border-slate-800/80">
+                <a href="https://github.com" target="_blank" class="text-slate-300 hover:text-white flex items-center gap-1.5">
+                  <i data-lucide="github" class="w-4 h-4"></i> Code
+                </a>
+                <a href="#" class="text-brand-400 hover:text-brand-300 flex items-center gap-1.5 ml-auto">
+                  Live Preview <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-brand-500/50 overflow-hidden flex flex-col group transition-all">
+          <div class="h-48 bg-gradient-to-br from-emerald-900/40 via-teal-900/20 to-slate-900 flex items-center justify-center p-6 border-b border-slate-800 relative">
+            <i data-lucide="shopping-bag" class="w-16 h-16 text-emerald-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between text-xs font-semibold text-emerald-400 mb-2">
+                <span>E-COMMERCE</span>
+                <span>2024</span>
+              </div>
+              <h4 class="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">Nova Storefront</h4>
+              <p class="text-slate-400 text-sm mt-2">Ultra-fast modern headless storefront featuring Stripe checkout, dynamic inventory search, and dark mode.</p>
+            </div>
+            <div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2.5 py-1 text-xs rounded-md bg-slate-800 text-slate-300 font-mono">Next.js 14</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-slate-800 text-slate-300 font-mono">Tailwind</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-slate-800 text-slate-300 font-mono">Stripe</span>
+              </div>
+              <div class="flex items-center gap-4 text-sm font-medium pt-2 border-t border-slate-800/80">
+                <a href="https://github.com" target="_blank" class="text-slate-300 hover:text-white flex items-center gap-1.5">
+                  <i data-lucide="github" class="w-4 h-4"></i> Code
+                </a>
+                <a href="#" class="text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 ml-auto">
+                  Live Preview <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-brand-500/50 overflow-hidden flex flex-col group transition-all">
+          <div class="h-48 bg-gradient-to-br from-cyan-900/40 via-sky-900/20 to-slate-900 flex items-center justify-center p-6 border-b border-slate-800 relative">
+            <i data-lucide="bot" class="w-16 h-16 text-cyan-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between text-xs font-semibold text-accent-400 mb-2">
+                <span>AI &amp; PRODUCTIVITY</span>
+                <span>2023</span>
+              </div>
+              <h4 class="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">TaskMind AI</h4>
+              <p class="text-slate-400 text-sm mt-2">Intelligent productivity suite that schedules tasks, summarizes notes, and integrates directly with calendar feeds.</p>
+            </div>
+            <div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2.5 py-1 text-xs rounded-md bg-slate-800 text-slate-300 font-mono">TypeScript</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-slate-800 text-slate-300 font-mono">FastAPI</span>
+                <span class="px-2.5 py-1 text-xs rounded-md bg-slate-800 text-slate-300 font-mono">OpenAI</span>
+              </div>
+              <div class="flex items-center gap-4 text-sm font-medium pt-2 border-t border-slate-800/80">
+                <a href="https://github.com" target="_blank" class="text-slate-300 hover:text-white flex items-center gap-1.5">
+                  <i data-lucide="github" class="w-4 h-4"></i> Code
+                </a>
+                <a href="#" class="text-accent-400 hover:text-accent-300 flex items-center gap-1.5 ml-auto">
+                  Live Preview <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience / Timeline -->
+    <section id="experience" class="max-w-4xl mx-auto px-6 py-24 border-t border-slate-800/80">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 mb-2">Career Journey</h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Experience &amp; Milestones</h3>
+      </div>
+
+      <div class="relative border-l border-slate-800 ml-4 md:ml-32 space-y-12">
+        <!-- Item 1 -->
+        <div class="relative pl-8">
+          <span class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-brand-600 border-4 border-slate-950 flex items-center justify-center"></span>
+          <span class="text-xs font-mono text-brand-400 uppercase tracking-wider">2022 - Present</span>
+          <h4 class="text-xl font-bold text-white mt-1">Senior Full-Stack Engineer</h4>
+          <p class="text-sm font-medium text-slate-400 mb-2">TechCorp Solutions • Remote</p>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Lead developer for the flagship web platform. Architected microservices that improved API latency by 35% and mentored 4 junior engineers on frontend performance best practices.
+          </p>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="relative pl-8">
+          <span class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-slate-700 border-4 border-slate-950"></span>
+          <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">2020 - 2022</span>
+          <h4 class="text-xl font-bold text-white mt-1">Frontend Developer</h4>
+          <p class="text-sm font-medium text-slate-400 mb-2">PixelCraft Digital</p>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Crafted responsive, high-converting customer experiences for client e-commerce platforms using React, TypeScript, and modern styling libraries.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-4xl mx-auto px-6 py-24 border-t border-slate-800/80">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 mb-2">Get in touch</h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Let's Work Together</h3>
+        <p class="text-slate-400 mt-3">Have a project idea, a question, or an opportunity? Reach out and say hello!</p>
+      </div>
+
+      <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-8 sm:p-12">
+        <form id="contact-form" class="space-y-6">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
+              <input required type="text" placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-300 mb-2">Your Email</label>
+              <input required type="email" placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-300 mb-2">Subject</label>
+            <input required type="text" placeholder="Project Inquiry / Job Opportunity" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-300 mb-2">Message</label>
+            <textarea required rows="4" placeholder="Tell me about your project..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+            <span>Send Message</span>
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+          <p id="form-status" class="hidden text-center text-sm font-medium text-emerald-400 mt-4">
+            Thank you! Your message has been received.
+          </p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 py-10 bg-slate-950 text-center text-slate-500 text-sm">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>&copy; <span id="year"></span> Khivan. Built with HTML, Tailwind CSS, &amp; Lucide.</p>
+      <div class="flex items-center gap-6">
+        <a href="#about" class="hover:text-slate-300">About</a>
+        <a href="#projects" class="hover:text-slate-300">Projects</a>
+        <a href="#contact" class="hover:text-slate-300">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+
+    // Current Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Dynamic Typing Effect
+    const words = ["scalable web applications.", "performant backend APIs.", "engaging UI/UX experiences.", "modern digital products."];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById("typing-text");
+
+    function typeEffect() {
+      const currentWord = words[wordIndex];
+      if (isDeleting) {
+        typingElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let speed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        speed = 1800; // Pause at end of word
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        speed = 400; // Pause before typing new word
+      }
+
+      setTimeout(typeEffect, speed);
+    }
+    typeEffect();
+
+    // Contact Form submission handler
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formStatus.classList.remove('hidden');
+      contactForm.reset();
+      setTimeout(() => {
+        formStatus.classList.add('hidden');
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
